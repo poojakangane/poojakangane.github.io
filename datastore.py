@@ -15,7 +15,7 @@ def write(data, filename='data.json'):
             json.dump(data,file,indent=4)
             
 def check(data):
- for key,value in data.items():    # items on Py 3k
+ for key,value in data.items():    
       for k,v in value.items():
         if k=="Ctime":  
           return k
@@ -25,7 +25,7 @@ def TTL(data):
    
     h=data
    
-    for key in list(h):    # items on Py 3k
+    for key in list(h):    
       for k in list(h[key]):
         if k=="toTime":
            n3=check(h)
@@ -133,6 +133,8 @@ while b=='y':
                         elif c1=='4':
                           t1=int(input("enter days:"))
                           tt=60*60*24*t1
+                        else:
+                            print("invalid input")
                         data={ch1:{"name":ch2,"roll":ch3,"dpt":ch4,"year":ch5,"Ctime":t,"toTime":tt}}
                         p.update(data)
                         write(p)
@@ -177,6 +179,8 @@ while b=='y':
         
         else:
             print("Database is empty!!!!!!")
+  else:
+    print("invalid input")
         
   b=input("Do you want to continue?? y/n:")             
            
